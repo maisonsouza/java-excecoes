@@ -1,11 +1,12 @@
 public class TestaContaExcecaoChecked {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SaldoInsuficienteException {
         Conta c = new ContaCorrente(123,125);
         try{
             c.deposita(152);
-        }catch(SaldoInsuficienteException ex){
-            System.out.println("Tratamento...");
+        }catch(Exception ex){
+            throw new SaldoInsuficienteException("Tratando");
+//            System.out.println("Tratamento...");
         }
     }
 }
